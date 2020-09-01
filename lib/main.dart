@@ -1,21 +1,62 @@
+import 'package:brikoula_client_app/services/theme.dart';
 import 'package:brikoula_client_app/ui/main_screen.dart';
+import 'package:brikoula_client_app/ui/splash_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'constants/constants.dart';
+import 'constants/styles.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+  prefs.then((value) {
+    runApp(
+      ChangeNotifierProvider<ThemeChanger>(
+        create: (BuildContext context) {
+          String theme = value.getString(Constants.APP_THEME);
+          if (theme == null ||
+              theme == "" ||
+              theme == Constants.SYSTEM_DEFAULT) {
+            value.setString(Constants.APP_THEME, Constants.SYSTEM_DEFAULT);
+            return ThemeChanger(ThemeMode.system);
+          }
+          return ThemeChanger(
+              theme == Constants.DARK ? ThemeMode.dark : ThemeMode.light);
+        },
+        child: EasyLocalization(
+            supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
+            path: 'assets/languages',
+            fallbackLocale: Locale('en', 'US'),
+            child: MyApp()),
+      ),
+    );
+  });
 }
-
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeChanger>(context);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MainScreen(),
+      title: 'Brikoula',
+      theme: AppTheme().lightTheme,
+      darkTheme: AppTheme().darkTheme,
+      themeMode: themeNotifier.getTheme(),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      initialRoute: 'splash_screen',
+      routes: {
+        'splash_screen': (context) => SplashScreen(),
+        'main_screen': (context) => MainScreen(),
+      },
     );
   }
 }

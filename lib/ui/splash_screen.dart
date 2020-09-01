@@ -1,3 +1,4 @@
+import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:brikoula_client_app/services/push_notifications.dart';
 import 'package:flutter/material.dart';
 
@@ -30,13 +31,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.orange,
+        color: AppColors.primary,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'app-name'.tr().toString(),
+                'app-name'.tr(),
                 style: TextStyle(
                     fontSize: 24,
                     color: Colors.white,
