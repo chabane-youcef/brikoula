@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "807693020831",
+    "firebase_url": "https://brikoula-client-app.firebaseio.com",
+    "project_id": "brikoula-client-app",
+    "storage_bucket": "brikoula-client-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807693020831:android:8e5b740143f69b06d7bcaa",
+        "android_client_info": {
+          "package_name": "com.chabaneyoucef.brikoula_client_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807693020831-ag4a1jkl75rm75cnhoihqn0vcjc3jlbj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chabaneyoucef.brikoula_client_app",
+            "certificate_hash": "c734915d9a3111c3b93e087b347372899982409e"
+          }
+        },
+        {
+          "client_id": "807693020831-s24tiog9oth5ho35oo6jrb86ltmmpts1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbOCLqVTwgfp0ncmyCUWYN_-FwUhycOhI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807693020831-s24tiog9oth5ho35oo6jrb86ltmmpts1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
