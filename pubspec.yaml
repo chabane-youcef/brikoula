@@ -18,6 +18,7 @@ dependencies:
   firebase_messaging: ^7.0.0
   provider: ^4.3.2+1
   shared_preferences: ^0.5.10
+  transparent_image: ^1.0.0
 
   cupertino_icons: ^0.1.3
 
@@ -34,6 +35,7 @@ flutter:
     - assets/languages/
     - assets/fonts/circe-rounded/
     - assets/fonts/tajawel/
+    - assets/icons/
 
   fonts:
     - family: Tajawal
