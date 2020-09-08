@@ -3,7 +3,6 @@ import 'package:brikoula_client_app/components/medium_artisan_card.dart';
 import 'package:brikoula_client_app/components/small_artisan_card.dart';
 import 'package:brikoula_client_app/services/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -55,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {},
                             child: Padding(
                               padding: const EdgeInsets.only(top: 5),
-                              child: Text('search-text').tr(),
+                              child: Text('Search for artisants...'),
                             ),
                           ),
                         ],
@@ -82,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
               Text(
-                'ranked-artisans'.tr(),
+                'Best artisans:',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
@@ -102,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
               Text(
-                'category'.tr(),
+                'categories:',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
@@ -125,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
               Text(
-                'near-you'.tr(),
+                'Near you:',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
@@ -146,27 +145,11 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 100,
               ),
-              Text('language').tr(),
-              FlatButton(
-                onPressed: () {
-                  setState(() {
-                    EasyLocalization.of(context).locale = Locale('en', 'US');
-                  });
-                },
-                child: Text('English'),
-              ),
-              FlatButton(
-                onPressed: () {
-                  setState(() {
-                    EasyLocalization.of(context).locale = Locale('ar', 'DZ');
-                  });
-                },
-                child: Text('عربى'),
-              ),
+
               SizedBox(
                 height: 100.0,
               ),
-              Text('theme').tr(),
+              Text('theme'),
               FlatButton(
                 child: Text('Dark theme'),
                 onPressed: () => _themeChanger.setTheme(ThemeMode.dark),

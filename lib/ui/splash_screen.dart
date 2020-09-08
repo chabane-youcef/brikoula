@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-import 'package:easy_localization/easy_localization.dart';
 
 import 'main_screen.dart';
 
@@ -37,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'app-name'.tr(),
+                'Brikoula',
                 style: TextStyle(
                     fontSize: 24,
                     color: Colors.white,

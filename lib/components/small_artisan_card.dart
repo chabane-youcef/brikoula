@@ -1,6 +1,5 @@
 import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class SmallArtisanCard extends StatelessWidget {

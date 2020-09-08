@@ -1,7 +1,6 @@
 import 'package:brikoula_client_app/services/theme.dart';
 import 'package:brikoula_client_app/ui/main_screen.dart';
 import 'package:brikoula_client_app/ui/splash_screen.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -27,11 +26,7 @@ void main() {
           return ThemeChanger(
               theme == Constants.DARK ? ThemeMode.dark : ThemeMode.light);
         },
-        child: EasyLocalization(
-            supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
-            path: 'assets/languages',
-            fallbackLocale: Locale('en', 'US'),
-            child: MyApp()),
+        child: MyApp(),
       ),
     );
   });
@@ -49,9 +44,6 @@ class MyApp extends StatelessWidget {
       theme: AppTheme().lightTheme,
       darkTheme: AppTheme().darkTheme,
       themeMode: themeNotifier.getTheme(),
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
       initialRoute: 'splash_screen',
       routes: {
         'splash_screen': (context) => SplashScreen(),
