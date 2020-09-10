@@ -1,4 +1,4 @@
-import 'package:brikoula_client_app/components/category_card.dart';
+import 'package:brikoula_client_app/components/small_category_card.dart';
 import 'package:brikoula_client_app/components/medium_artisan_card.dart';
 import 'package:brikoula_client_app/components/small_artisan_card.dart';
 import 'package:brikoula_client_app/services/theme.dart';

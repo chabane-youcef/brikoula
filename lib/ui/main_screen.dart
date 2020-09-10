@@ -3,6 +3,8 @@ import 'package:brikoula_client_app/ui/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+import 'category_screen.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -32,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
           HomeScreen(),
           Screen(title: "near you"),
           Screen(title: "hire artisant"),
-          Screen(title: "categories"),
+          CategoryScreen(),
           Screen(title: "profil"),
         ],
         onPageChanged: (num) {
