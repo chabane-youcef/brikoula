@@ -7,13 +7,13 @@ class CategoryCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 140,
+        width: MediaQuery.of(context).size.width * 0.35,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 140,
+              width: MediaQuery.of(context).size.width * 0.35,
               height: 130,
               child: Card(
                 elevation: 3,
@@ -40,7 +40,7 @@ class CategoryCard extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
               ),
-            )
+            ),
           ],
         ),
       ),
