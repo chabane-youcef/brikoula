@@ -1,5 +1,6 @@
 import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:brikoula_client_app/ui/home_screen.dart';
+import 'package:brikoula_client_app/ui/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -35,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
           Screen(title: "near you"),
           Screen(title: "hire artisant"),
           CategoryScreen(),
-          Screen(title: "profil"),
+          ProfileScreen(),
         ],
         onPageChanged: (num) {
           print("Current page number is " + num.toString());

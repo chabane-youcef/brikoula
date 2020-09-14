@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 
+import 'artisan_screen.dart';
 import 'main_screen.dart';
 
 class SplashScreen extends StatefulWidget {

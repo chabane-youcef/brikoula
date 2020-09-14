@@ -171,7 +171,7 @@ class ArtisanScreen extends StatelessWidget {
                             Text(
                               '0697422421',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w700),
+                                  fontSize: 14, fontWeight: FontWeight.w700),
                             ),
                           ],
                         ),
