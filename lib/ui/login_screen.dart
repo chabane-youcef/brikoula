@@ -1,6 +1,7 @@
 import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:brikoula_client_app/controllers/authenticator.dart';
 import 'package:brikoula_client_app/controllers/toaster.dart';
+import 'package:brikoula_client_app/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -245,7 +246,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: Colors.white,
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => RegisterScreen()));
+                        },
                       ),
                     ],
                   ),
