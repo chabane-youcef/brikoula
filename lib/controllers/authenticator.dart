@@ -24,9 +24,8 @@ class Authenticator {
         prefs.setBool('isLogged', true);
         prefs.setString('api_token', response.apiToken);
         prefs.setString('email', email);
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => MainScreen(
-            )));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => MainScreen()));
         Toaster.showBasicToast('Logged in successfully');
       } else {
         Toaster.showErrorToast(response.msg);
@@ -35,6 +34,32 @@ class Authenticator {
     } catch (e) {
       Toaster.showErrorToast(
           'failed to connect to server, please check you network');
+    }
+  }
+
+  static Future<bool> register(BuildContext context, String name, String phone,
+      String email, String password) async {
+    try{
+      AuthResponse response = await Network().register(
+          route: null,
+          name: null,
+          phone: null,
+          email: null,
+          password: null,);
+
+      if(response.status){
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setBool('isLogged', true);
+        prefs.setString('api_token', response.apiToken);
+
+        // Navigator.of(context).pushReplacement(
+        //     MaterialPageRoute(builder: (context) => LocationScreen()));
+        Toaster.showBasicToast('you have been registered successfully');
+      }else {
+        Toaster.showErrorToast(response.msg);
+      }
+    }catch(e){
+      Toaster.showErrorToast('failed to connect to server, please check your connection');
     }
   }
 }
