@@ -22,8 +22,7 @@ class MediumArtisanCard extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 25,
-                  backgroundImage: NetworkImage('https://poulterplumbing.co.uk/wp-content/uploads/2016/08/Blog-2-1000x450.jpg'),
-                  backgroundColor: AppColors.primary,
+                  backgroundImage: NetworkImage('https://media.istockphoto.com/photos/portrait-of-smiling-handsome-man-in-blue-tshirt-standing-with-crossed-picture-id1045886560?k=6&m=1045886560&s=612x612&w=0&h=hXrxai1QKrfdqWdORI4TZ-M0ceCVakt4o6532vHaS3I='),
                 ),
                 SizedBox(width: 10,),
                 Column(
@@ -54,7 +53,7 @@ class MediumArtisanCard extends StatelessWidget {
                             children: [
                               Image.asset('assets/icons/ic_done.png'),
                               SizedBox(
-                                width: 10,
+                                width: 5,
                               ),
                               Text(
                                 'morning',
@@ -70,7 +69,7 @@ class MediumArtisanCard extends StatelessWidget {
                             children: [
                               Image.asset('assets/icons/ic_rating.png'),
                               SizedBox(
-                                width: 10,
+                                width: 5,
                               ),
                               Text(
                                 'morning',
@@ -85,7 +84,7 @@ class MediumArtisanCard extends StatelessWidget {
                             children: [
                               Image.asset('assets/icons/ic_time.png'),
                               SizedBox(
-                                width: 10,
+                                width: 5,
                               ),
                               Text(
                                 'morning',

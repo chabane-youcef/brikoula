@@ -25,6 +25,7 @@ class ReviewCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 15,
+                      backgroundImage: NetworkImage('https://im.indiatimes.in/media/content/itimes/blog/2017/Jan/24/1485262231-things-mature-men-will-never-do.jpg'),
                     ),
                     SizedBox(width: 10,),
                     Column(

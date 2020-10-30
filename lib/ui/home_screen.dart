@@ -1,9 +1,13 @@
-import 'package:brikoula_client_app/components/small_category_card.dart';
+import 'package:brikoula_client_app/components/custom_drawer.dart';
 import 'package:brikoula_client_app/components/medium_artisan_card.dart';
 import 'package:brikoula_client_app/components/small_artisan_card.dart';
+import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:brikoula_client_app/services/theme.dart';
+import 'package:brikoula_client_app/ui/demande_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'artisan_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,57 +22,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 10,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
-        )),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(19.0),
-          child: Container(
-            height: 65,
-            alignment: Alignment.center,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-              child: GestureDetector(
-                onTap: () {
-                  print('open search');
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          SizedBox(width: 16),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Image.asset(
-                                'assets/icons/ic_search${isDarkTheme ? '_dark' : ''}.png'),
-                          ),
-                          SizedBox(width: 24),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 5),
-                              child: Text('Search for artisants...'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+        title: Text(
+          'BRIKOULA',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16),
+              bottomRight: Radius.circular(16)),
+        ),
+      ),
+      drawer: Drawer(
+        child: CustomDrawer(),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -88,37 +54,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Container(
-                height: 190,
+                height: 300,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 8,
-                  itemBuilder: (context,index){
-                    return SmallArtisanCard();
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ArtisanScreen()),
+                        );
+                      },
+                      child: SmallArtisanCard(),
+                    );
                   },
                 ),
               ),
               SizedBox(
                 height: 10,
-              ),
-              Text(
-                'categories:',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                height: 180,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 8,
-                  itemBuilder: (context,index){
-                    return CategoryCard();
-                  },
-                ),
               ),
               SizedBox(
                 height: 10,
@@ -134,37 +89,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
               ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                primary: true,
                 shrinkWrap: true,
                 itemCount: 8,
-                itemBuilder: (context,index){
-                  return  MediumArtisanCard();
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ArtisanScreen()),
+                      );
+                    },
+                    child: MediumArtisanCard(),
+                  );
                 },
-              ),
-
-
-              SizedBox(
-                height: 100,
-              ),
-
-              SizedBox(
-                height: 100.0,
-              ),
-              Text('theme'),
-              FlatButton(
-                child: Text('Dark theme'),
-                onPressed: () => _themeChanger.setTheme(ThemeMode.dark),
-              ),
-              FlatButton(
-                child: Text('light theme'),
-                onPressed: () => _themeChanger.setTheme(ThemeMode.light),
-              ),
-              FlatButton(
-                child: Text('system default theme'),
-                onPressed: () => _themeChanger.setTheme(ThemeMode.system),
               ),
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Image.asset('assets/icons/ic_helmet.png'),
+        backgroundColor: AppColors.primary,
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DemandScreen()),
+          );
+        },
       ),
     );
   }

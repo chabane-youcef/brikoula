@@ -1,3 +1,4 @@
+import 'package:brikoula_client_app/components/custom_drawer.dart';
 import 'package:brikoula_client_app/components/demand_card.dart';
 import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,6 +8,21 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'BRIKOULA',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16),
+              bottomRight: Radius.circular(16)),
+        ),
+      ),
+      drawer: Drawer(
+        child: CustomDrawer(),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -16,15 +32,10 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [Image.asset('assets/icons/ic_options.png')],
-              ),
-              SizedBox(
-                height: 15,
-              ),
+
               CircleAvatar(
                 radius: 50,
+                backgroundImage: NetworkImage('https://www.machinecurve.com/wp-content/uploads/2019/07/thispersondoesnotexist-1-1022x1024.jpg'),
               ),
               SizedBox(
                 height: 5,
@@ -136,6 +147,8 @@ class ProfileScreen extends StatelessWidget {
                   Container(
                     child: ListView(
                       shrinkWrap: true,
+                      primary: true,
+                      physics: const NeverScrollableScrollPhysics(),
                       children: [
                         DemandCard(name: 'boufar tarek',category: 'plumber',date: '12-12-2019',period: 'morning',status: 'approved',),
                         DemandCard(name: 'boufar tarek',category: 'plumber',date: '12-12-2019',period: 'morning',status: 'refused',),

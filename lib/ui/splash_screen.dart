@@ -1,14 +1,9 @@
 import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:brikoula_client_app/services/push_notifications.dart';
 import 'package:brikoula_client_app/ui/login_screen.dart';
-import 'package:brikoula_client_app/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
-
-
-import 'artisan_screen.dart';
-import 'main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -25,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Duration duration = Duration(seconds: 3);
     Future.delayed(duration, () async {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => RegisterScreen()));
+          MaterialPageRoute(builder: (context) => LoginScreen()));
     });
   }
 
@@ -38,12 +33,9 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'Brikoula',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800),
+              Image.asset('assets/icons/ic_big_logo.png'),
+              SizedBox(
+                height: 25,
               ),
               CircularProgressIndicator(
                 valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),

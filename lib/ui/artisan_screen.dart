@@ -1,3 +1,4 @@
+import 'package:brikoula_client_app/components/custom_drawer.dart';
 import 'package:brikoula_client_app/components/review_card.dart';
 import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:flutter/material.dart';
@@ -6,19 +7,28 @@ class ArtisanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'BRIKOULA',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16),
+              bottomRight: Radius.circular(16)),
+        ),
+      ),
+      drawer: Drawer(
+        child: CustomDrawer(),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [Image.asset('assets/icons/ic_options.png')],
-              ),
+
               SizedBox(
                 height: 15,
               ),
@@ -27,6 +37,7 @@ class ArtisanScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 50,
+                    backgroundImage: NetworkImage('https://media.istockphoto.com/photos/portrait-of-smiling-handsome-man-in-blue-tshirt-standing-with-crossed-picture-id1045886560?k=6&m=1045886560&s=612x612&w=0&h=hXrxai1QKrfdqWdORI4TZ-M0ceCVakt4o6532vHaS3I='),
                   ),
                   SizedBox(
                     width: 20,
@@ -248,7 +259,7 @@ class ArtisanScreen extends StatelessWidget {
                   ),
                   onPressed: (){},
                 ),
-              )
+              ),
             ],
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:brikoula_client_app/constants/colors.dart';
 import 'package:brikoula_client_app/controllers/authenticator.dart';
 import 'package:brikoula_client_app/controllers/toaster.dart';
+import 'package:brikoula_client_app/ui/home_screen.dart';
 import 'package:brikoula_client_app/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,11 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
+  Future<bool> _login()async {
+    await Future.delayed(Duration(seconds: 5));
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -40,10 +46,8 @@ class _LoginScreenState extends State<LoginScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  Text(
-                    'logo',
-                    style: TextStyle(fontSize: 32, color: Colors.white),
-                  ),
+                  Image.asset('assets/icons/ic_logo.png'),
+                  SizedBox(height: 25,),
                   Container(
                     padding: EdgeInsets.only(left: 10, right: 10),
                     child: Card(
@@ -61,7 +65,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Text(
                                 'Login',
                                 style: TextStyle(
-                                  color: Colors.black,
                                   fontSize: 28,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -136,13 +139,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                       setState(() {
                                         isWaiting = true;
                                       });
-                                      await Authenticator.logIn(
-                                        context,
-                                        emailController.text,
-                                        pswController.text,
-                                      );
+                                      await _login();
+                                      // await Authenticator.logIn(
+                                      //   context,
+                                      //   emailController.text,
+                                      //   pswController.text,
+                                      // );
                                       setState(() {
                                         isWaiting = false;
+                                        Navigator.of(context).pushReplacement(
+                                            MaterialPageRoute(builder: (context) => HomeScreen()));
                                       });
                                     } else if (emailController.text == null ||
                                         !validEmail) {

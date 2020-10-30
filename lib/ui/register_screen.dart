@@ -44,10 +44,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  Text(
-                    'logo',
-                    style: TextStyle(fontSize: 32, color: Colors.white),
-                  ),
+                  Image.asset('assets/icons/ic_logo.png'),
+                  SizedBox(height: 25,),
                   Container(
                     padding: EdgeInsets.only(left: 10, right: 10),
                     child: Card(
@@ -65,7 +63,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               child: Text(
                                 'Register',
                                 style: TextStyle(
-                                  color: Colors.black,
                                   fontSize: 28,
                                   fontWeight: FontWeight.w600,
                                 ),
